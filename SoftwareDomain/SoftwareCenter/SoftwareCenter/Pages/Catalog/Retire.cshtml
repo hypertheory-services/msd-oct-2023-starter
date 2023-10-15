@@ -1,0 +1,18 @@
+﻿@page "{Id}"
+@model SoftwareCenter.Pages.Catalog.RetireModel
+@{
+}
+
+@if (Model.Title is null)
+{
+    <div class="alert alert-warning">
+        <h3>Cannot Find That Title</h3>
+        <a asp-page="/catalog/index" class="btn btn-link">Back to Catalog</a>
+    </div>
+} else {
+<h2>Retire Title @Model.Title.TitleName by @Model.Title.Publisher ?</h2>
+<form method="post">
+    <button class="btn btn-danger" type="submit">Retire This Title</button>
+</form>
+    <a asp-page="/catalog/index" class="btn btn-primary">Back to Catalog</a>
+}

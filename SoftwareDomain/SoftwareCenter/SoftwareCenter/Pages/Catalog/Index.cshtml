@@ -1,0 +1,33 @@
+﻿@page
+@model SoftwareCenter.Pages.Catalog.IndexModel
+@{
+}
+
+<h1>Software Catalog</h1>
+
+@if(Model.Titles.Count == 0)
+{
+    <div class="alert alert-info">
+        <h3>You have no software in the catalog!</h3>
+    </div>
+}
+
+<ul class="list-unstyled">
+    @foreach(var title in Model.Titles) {
+    <li> 
+        <div class="card">
+            <div class="card-header"><h3>@title.TitleName</h3></div>
+            <div class="card-body">
+
+                    <p>Published by @title.Publisher</p>
+                    <p>Supported by @title.SupportTech</p>
+            </div>
+                <div class="card-footer">
+                    <a asp-page="retire" asp-route-id="@title.Id" class="card-link">Retire This Software</a>
+                </div>
+        </div>
+    </li>
+    }
+</ul>
+
+<a class="btn btn-primary" asp-page="new">Add New Title</a>

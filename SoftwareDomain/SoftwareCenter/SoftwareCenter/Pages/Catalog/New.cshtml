@@ -1,0 +1,34 @@
+﻿@page
+@model SoftwareCenter.Pages.Catalog.NewModel
+@{
+}
+
+<h2>Add A New Software Item To The Catalog</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Title.TitleName"></label>
+        <input class="form-control" type="text" asp-for="Title.TitleName" />
+        <span asp-validation-for="Title.TitleName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Title.Publisher"></label>
+        <input class="form-control" type="text" asp-for="Title.Publisher" />
+        <span asp-validation-for="Title.Publisher"></span>
+    </div>
+    <div class="form-grou">
+        <label asp-for="Title.SupportTech"></label>
+        <select asp-for="Title.SupportTech" class="form-control">
+            <option>Jill@Company.Com</option>
+            <option>Sam@Company.Com</option>
+            <option>Barry@Company.Com</option>
+            <option>Sylvie@Company.Com</option>
+        </select>
+        <span asp-validation-for="Title.SupportTech"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add To Catalog</button>
+</form>
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
